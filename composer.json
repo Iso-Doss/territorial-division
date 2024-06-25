@@ -75,7 +75,14 @@
     "config": {
         "sort-packages": true
     },
-    "scripts": {},
+    "scripts": {
+        "post-install-cmd": [
+            "sh install.sh"
+        ],
+        "post-update-cmd": [
+            "sh install.sh"
+        ]
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
