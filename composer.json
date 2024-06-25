@@ -24,7 +24,7 @@
         "psr-4": {
             "Iso-Doss\\TerritorialDivision\\": "src/",
             "Iso-Doss\\TerritorialDivision\\Database\\Factories\\": "src/",
-            "Iso-Doss\\TerritorialDivision\\Database\\Seeders": "src/"
+            "Iso-Doss\\TerritorialDivision\\Database\\Seeders\\": "src/"
         },
         "files": [
             "src/helpers.php"
