@@ -4,7 +4,7 @@ namespace IsoDoss\TerritorialDivision;
 
 use Illuminate\Support\ServiceProvider;
 
-class TerritorialDivisionProvider extends ServiceProvider
+class TerritorialDivisionServiceProvider extends ServiceProvider
 {
 	/**
 	 * Bootstrap any package services.
