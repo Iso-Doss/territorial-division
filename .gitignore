@@ -24,3 +24,4 @@ _ide_helper_models.php
 public/vendor/
 packages/
 package-lock.json
+resources/views/vendor/
