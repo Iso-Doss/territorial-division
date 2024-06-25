@@ -1,0 +1,65 @@
+{
+    "name": "iso-doss/territorial-division",
+    "description": "Laravel package for territorial division management.",
+    "keywords": [
+        "laravel",
+        "package",
+        "territorial division"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "support": {
+        "issues": "",
+        "source": ""
+    },
+    "authors": [
+        {
+            "name": "Israel Morel DOSSOU",
+            "email": "dossou.israrel48@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Iso-Doss\\TerritorialDivision\\": "src/",
+            "Iso-Doss\\TerritorialDivision\\Database\\Factories\\": "src/",
+            "Iso-Doss\\TerritorialDivision\\Database\\Seeders": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laravel\\Telescope\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\": "workbench/database/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laravel\\Telescope\\TelescopeServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-autoload-dump": "@composer run prepare",
+        "prepare": "@php ./vendor/bin/testbench package:discover --ansi",
+        "build": [
+            "@php ./vendor/bin/testbench package:create-sqlite-db",
+            "@php ./vendor/bin/testbench telescope:publish --force",
+            "@php ./vendor/bin/testbench migrate:refresh"
+        ],
+        "start": [
+            "@composer run build",
+            "@php ./vendor/bin/testbench serve"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
