@@ -31,35 +31,17 @@
         ]
     },
     "autoload-dev": {
-        "psr-4": {
-            "Laravel\\Telescope\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/",
-            "Workbench\\Database\\": "workbench/database/"
-        }
+        "psr-4": {}
     },
     "extra": {
         "laravel": {
-            "providers": [
-                "Laravel\\Telescope\\TelescopeServiceProvider"
-            ]
+            "providers": []
         }
     },
     "config": {
         "sort-packages": true
     },
-    "scripts": {
-        "post-autoload-dump": "@composer run prepare",
-        "prepare": "@php ./vendor/bin/testbench package:discover --ansi",
-        "build": [
-            "@php ./vendor/bin/testbench package:create-sqlite-db",
-            "@php ./vendor/bin/testbench telescope:publish --force",
-            "@php ./vendor/bin/testbench migrate:refresh"
-        ],
-        "start": [
-            "@composer run build",
-            "@php ./vendor/bin/testbench serve"
-        ]
-    },
+    "scripts": {},
     "minimum-stability": "dev",
     "prefer-stable": true
 }
