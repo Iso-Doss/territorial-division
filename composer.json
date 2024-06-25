@@ -6,7 +6,6 @@
         "package",
         "territorial division"
     ],
-    "type": "library",
     "license": "MIT",
     "support": {
         "issues": "https://github.com/Iso-Doss/territorial-division",
@@ -75,7 +74,6 @@
     "config": {
         "sort-packages": true
     },
-    "scripts": {},
     "minimum-stability": "dev",
     "prefer-stable": true
 }
