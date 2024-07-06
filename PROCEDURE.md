@@ -12,8 +12,10 @@ php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvid
 php artisan vendor:publish --provider="Spatie\Activitylog\ActivitylogServiceProvider" --tag="activitylog-migrations"
 php artisan vendor:publish --provider="Spatie\Activitylog\ActivitylogServiceProvider" --tag="activitylog-config"
 
+php artisan vendor:publish --provider="IsoDoss\TerritorialDivision\TerritorialDivisionServiceProvider" --tag="territorial-division-migrations"
+php artisan vendor:publish --provider="IsoDoss\TerritorialDivision\TerritorialDivisionServiceProvider" --tag="territorial-division-configs"
+
 php artisan migrate
 
 https://docs.google.com/document/d/1rdTDI5vMuI4--sfeMcswWKg8uqS1yP7kP_Gl6KI5inI/edit
-
 https://docs.google.com/document/d/1YtSYjqg17TOjngyD4aftfaLWBD4P4yXXTvKraKdK6g4/edit
