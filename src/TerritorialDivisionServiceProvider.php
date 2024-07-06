@@ -45,7 +45,7 @@ class TerritorialDivisionServiceProvider extends ServiceProvider
 	{
 		$this->publishes([
 			__DIR__ . '/../config/territorial-division.php' => config_path('territorial-division.php'),
-		], 'territorial-division-config');
+		], 'territorial-division-configs');
 	}
 
 	/**
@@ -56,6 +56,10 @@ class TerritorialDivisionServiceProvider extends ServiceProvider
 	protected function registerMigrations(): void
 	{
 		$this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
+		$this->publishes([
+			__DIR__.'/../database/migrations' => database_path('database/migrations')
+		], 'territorial-division-migrations');
 	}
 
 	/**
