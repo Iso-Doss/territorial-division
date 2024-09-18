@@ -36,6 +36,7 @@ return new class extends Migration {
 				$table->foreignUuid('country_id')->nullable()->references('id')->on('countries')->cascadeOnUpdate()->cascadeOnDelete();
 				$table->timestamp('verified_at')->nullable();
 				$table->timestamp('email_verified_at')->nullable();
+				$table->timestamp('password_updated_at')->nullable()->useCurrent();
 				$table->timestamp('phone_number_verified_at')->nullable();
 				$table->timestamp('activated_at')->nullable();
 				$table->rememberToken();

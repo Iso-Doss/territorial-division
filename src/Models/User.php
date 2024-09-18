@@ -57,10 +57,11 @@ class User extends Authenticatable
 		'has_default_password',
 		'godfather_id',
 		'country_id',
+		'activated_at',
 		'verified_at',
+		'password_updated_at',
 		'email_verified_at',
 		'phone_number_verified_at',
-		'activated_at',
 	];
 
 	/**
@@ -79,10 +80,11 @@ class User extends Authenticatable
 	 * @var array<string, string>
 	 */
 	protected $casts = [
+		'activated_at' => 'datetime',
 		'verified_at' => 'datetime',
+		'password_updated_at' => 'datetime',
 		'email_verified_at' => 'datetime',
 		'phone_number_verified_at' => 'datetime',
-		'activated_at' => 'datetime',
 		'deleted_at' => 'datetime',
 		'created_at' => 'datetime',
 		'updated_at' => 'datetime',
