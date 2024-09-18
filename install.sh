@@ -25,5 +25,5 @@ if [ -f "artisan" ]; then
 
     php artisan migrate
 else
-    echo -e "${RED}Artisan file not found. Skipping custom installation script.${NC}"
+    echo "${RED}Artisan file not found. Skipping custom installation script.${NC}"
 fi
