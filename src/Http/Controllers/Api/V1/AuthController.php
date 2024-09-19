@@ -2,7 +2,7 @@
 
 namespace IsoDoss\TerritorialDivision\Http\Controllers\Api\V1;
 
-use IsoDoss\TerritorialDivision\Event\UserAccountEvent;
+use IsoDoss\TerritorialDivision\Events\SendNotificationEvent;
 use IsoDoss\TerritorialDivision\Http\Controllers\Controller;
 use IsoDoss\TerritorialDivision\Http\Requests\Auth\ForgotPasswordRequest;
 use IsoDoss\TerritorialDivision\Http\Requests\Auth\ResetPasswordRequest;
@@ -66,7 +66,7 @@ class AuthController extends Controller
         $sendEmailValidateAccountMailData['view'] = 'mails.auth.sign-up';
         $sendEmailValidateAccountMailData['token'] = $token;
         $sendEmailValidateAccountMailData['validate_account_url'] = $requestData['validate_account_url'] ?? '';
-        event(new UserAccountEvent($user, $sendEmailValidateAccountMailData));
+        event(new SendNotificationEvent($user, $sendEmailValidateAccountMailData));
 
         return (new SendApiResponse(true, __('messages.auth.send-email-validate-account.success'), [], [], $requestData, $user->toArray(), 201))->response();
     }
@@ -95,7 +95,7 @@ class AuthController extends Controller
         $validateAccountMailData['message'] = __('messages.auth.validate-account.mail', ['app-name' => config('app.name')]);
         $validateAccountMailData['view'] = 'mails.auth.validate-account';
         $validateAccountMailData['validate_account_url'] = $requestData['validate_account_url'] ?? '';
-        event(new UserAccountEvent($user, $validateAccountMailData));
+        event(new SendNotificationEvent($user, $validateAccountMailData));
 
         return (new SendApiResponse(true, __('messages.auth.validate-account.success'), [], [], $requestData, $user->toArray(), 201))->response();
     }
@@ -118,7 +118,7 @@ class AuthController extends Controller
         $dataSignIn['title'] = __('messages.auth.sign-in.mail', ['app-name' => config('app.name')]);
         $dataSignIn['message'] = __('messages.auth.sign-in.mail', ['app-name' => config('app.name')]);
         $dataSignIn['view'] = 'mails.auth.sign-in';
-        event(new UserAccountEvent($user, $dataSignIn));
+        event(new SendNotificationEvent($user, $dataSignIn));
 
         $userData = $user->toArray();
         $userData['token'] = $user->createToken('cfp-le-savoir-faire-api-sign-in-token', [$user->role], now()->addMinutes(60 * 24))->plainTextToken;
@@ -161,7 +161,7 @@ class AuthController extends Controller
         $forgotPasswordMailData['view'] = 'mails.auth.forgot-password';
         $forgotPasswordMailData['token'] = $token;
         $forgotPasswordMailData['reset_password_url'] = $requestData['reset_password_url'] ?? '';
-        event(new UserAccountEvent($user, $forgotPasswordMailData));
+        event(new SendNotificationEvent($user, $forgotPasswordMailData));
 
         return (new SendApiResponse(true, __('messages.auth.forgot-password.success'), [], [], $requestData, $user->toArray(), 201))->response();
     }
@@ -198,7 +198,7 @@ class AuthController extends Controller
         $dataResetPassword['title'] = __('messages.auth.reset-password.mail', ['app-name' => config('app.name')]);
         $dataResetPassword['message'] = __('messages.auth.reset-password.mail', ['app-name' => config('app.name')]);
         $dataResetPassword['view'] = 'mails.auth.reset-password';
-        event(new UserAccountEvent($user, $dataResetPassword));
+        event(new SendNotificationEvent($user, $dataResetPassword));
 
         return (new SendApiResponse(true, __('messages.auth.reset-password.success'), [], [], ['user' => $user->toArray()]))->response();
     }

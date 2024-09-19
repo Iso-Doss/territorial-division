@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Schema;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
+/**
+ * @mixin IdeHelperCountry
+ */
 class Country extends Model
 {
 	use HasFactory, HasUuids, LogsActivity, SoftDeletes;

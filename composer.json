@@ -77,10 +77,10 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "sh install.sh"
+            "bash install.sh"
         ],
         "post-update-cmd": [
-            "sh install.sh"
+            "bash install.sh"
         ]
     },
     "minimum-stability": "dev",
